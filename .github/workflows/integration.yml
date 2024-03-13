@@ -24,12 +24,8 @@ jobs:
 
             - name: Report banana result
               run: |
-                NB_ERROR=$(cat coding-style-reports.log |
-                wc -l)
-                if [ $NB_ERROR -gt 0 ]; then
-                    ERROR=$(cat coding-style-reports.log)
-                    echo "::error title=$NB_ERROR errors
-                    found::$ERROR"
+                NB_ERROR=$(cat coding-style-reports.log | wc -l)
+                if [ $NB_ERROR -gt 0 ]; then ERROR=$(cat coding-style-reports.log) echo "::error title=$NB_ERROR errors found::$ERROR"
                     exit 1
                 fi
                 exit 0
@@ -46,9 +42,7 @@ jobs:
 
           - name: Check binary presence
             run: |
-              if [ ! -f ./swapupcase ]; then
-                  echo "::error file=swapupcase,
-                  title=Binary Error::Binary not found"
+              if [ ! -f ./swapupcase ]; then echo "::error file=swapupcase, title=Binary Error::Binary not found"
                   exit
               fi
               exit 0
