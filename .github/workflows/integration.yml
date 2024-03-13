@@ -58,9 +58,9 @@ jobs:
 
           - name: Check binary presence
             run: |
-            if [ ! -f ./swapupcase ]; then
-                echo "::error file=swapupcase,
-                title=Binary Error::Binary not found"
-                exit
-            fi
-            exit 0
+              if [ ! -f ./swapupcase ]; then
+                  echo "::error file=swapupcase,
+                  title=Binary Error::Binary not found"
+                  exit
+              fi
+              exit 0
